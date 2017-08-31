@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import Users from './users';
 
 
 export default class App extends Component {
@@ -25,9 +26,11 @@ export default class App extends Component {
   }
  
   render() {
+    let userData = this.state.users;
+
     return (
       <div className='users'>
-        праjhg
+        <Users users={userData} />
       </div>
     );
   }
