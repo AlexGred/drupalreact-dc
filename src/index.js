@@ -1,9 +1,9 @@
 /*jshint esversion: 6 */
 
-class Users extends React.Component {
+/*class Users extends React.Component {
 
   render() {
-/*    var data = this.state.users;
+    var data = this.state.users;
     var userData;
 
     userData = data.map((item, index) => {
@@ -15,7 +15,7 @@ class Users extends React.Component {
           <img className="img" src={img} />
         </div>
       );
-    });*/
+    });
 
     console.log(this.state.users);
 
@@ -25,10 +25,10 @@ class Users extends React.Component {
       </div>
     );
   }
-}
+}*/
 
 
-class App extends React.Component {
+/*class App extends React.Component {
 
   constructor(props) {
     super(props);
@@ -58,10 +58,11 @@ class App extends React.Component {
       </div>
     );
   }
-}
+}*/
 
 
-ReactDOM.render(
-  <App source="http://dev.drupal-coder.ru/api/users" />,
-  document.getElementById('root')
-);
+//ReactDOM.render(
+  // <App source="http://dev.drupal-coder.ru/api/users" />,
+  document.getElementById('root').innerHTML = 'Hello';
+  module.hot.accept();
+//);
