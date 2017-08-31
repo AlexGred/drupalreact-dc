@@ -1,0 +1,13 @@
+{
+  "name": "drupalreact",
+  "version": "1.0.0",
+  "description": "Drupal Coder react app",
+  "main": "index.html",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Alex Dolzhenkov",
+  "devDependencies": {
+    "express": "^4.15.4"
+  }
+}
