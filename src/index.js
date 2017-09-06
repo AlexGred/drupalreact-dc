@@ -9,7 +9,7 @@ import App from './containers/app';
 import User from './companents/user';
 
 // Route
-import { HashRouter, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 
 // Store
 import configureStore from './store/configureStore';
@@ -24,12 +24,12 @@ const store = configureStore();
 
 render(
   <Provider store={store}>
-    <HashRouter>
+    <Router>
       <Switch>
         <Route exact path='/' component={App}/>
-        <Route path='/user' component={User}/>
+        <Route path='/user/:uid' component={User}/>
       </Switch>
-    </HashRouter>
+    </Router>
   </Provider>,
 
   document.getElementById('root')

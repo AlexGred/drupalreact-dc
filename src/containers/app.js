@@ -15,9 +15,6 @@ class App extends Component {
   }
  
   componentDidMount() {
-
-    //console.log(this.props);
-
     this.serverRequest = axios.get(this.props.source).then(user => {      
       this.setState({
         users: user.data
@@ -25,14 +22,12 @@ class App extends Component {
     });
   }
 
-  componentWillUnmount() {
-    this.serverRequest.abort();
-  }
+  // componentWillUnmount() {
+  //   this.serverRequest.abort();
+  // }
  
   render() {
     let userData = this.state.users;
-
-    //console.log(userData);
 
     return (
       <div className='users'>

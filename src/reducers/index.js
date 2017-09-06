@@ -1,5 +1,5 @@
 const initialState = {
-  source: 'http://dev.drupal-coder.ru/api/users'
+  source: 'http://dev.drupal-coder.ru/api/user'
 };
 
 export default function userstate(state = initialState) {
