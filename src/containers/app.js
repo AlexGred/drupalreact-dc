@@ -15,6 +15,9 @@ class App extends Component {
   }
  
   componentDidMount() {
+
+    //console.log(this.props);
+
     this.serverRequest = axios.get(this.props.source).then(user => {      
       this.setState({
         users: user.data
@@ -29,6 +32,8 @@ class App extends Component {
   render() {
     let userData = this.state.users;
 
+    //console.log(userData);
+
     return (
       <div className='users'>
         <Users users={userData} />
@@ -39,7 +44,7 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    users: state.source
+    source: state.source
   };
 }
 
