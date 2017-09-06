@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 import axios from 'axios';
-import Users from './users';
+import Users from '../companents/users';
 
 
-export default class App extends Component {
+class App extends Component {
 
   constructor(props) {
     super(props);
@@ -35,3 +36,11 @@ export default class App extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    users: state.source
+  };
+}
+
+export default connect(mapStateToProps)(App);

@@ -5,7 +5,7 @@ export default class Users extends Component {
   render() {
     let data = this.props.users;
 
-    console.log(data);
+    //console.log(data);
 
     var userData = data.map((item, index) => {
       let img = 'http://dev.drupal-coder.ru' + decodeURIComponent(item.user_picture);
