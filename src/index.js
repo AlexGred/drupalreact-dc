@@ -27,7 +27,7 @@ render(
     <Router>
       <Switch>
         <Route exact path='/' component={App}/>
-        <Route path='/user/:uid' component={User}/>
+        <Route exact path='/user/:uid' component={User}/>
       </Switch>
     </Router>
   </Provider>,
