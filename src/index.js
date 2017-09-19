@@ -16,7 +16,7 @@ import configureStore from './store/configureStore';
 
 // Styles
 import 'jquery';
-import './styles/_style.less';
+import './styles/style.less';
 import 'uikit';
 import 'uikit/dist/css/uikit.min.css';
 
