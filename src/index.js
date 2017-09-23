@@ -14,11 +14,13 @@ import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 // Store
 import configureStore from './store/configureStore';
 
-// Styles
+// UI
 import 'jquery';
-import './styles/style.less';
 import 'uikit';
+
+// Styles
 import 'uikit/dist/css/uikit.min.css';
+import './styles/style.less';
 
 const store = configureStore();
 

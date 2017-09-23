@@ -7,8 +7,8 @@
   <body>
 
     <header class="header" id="header">
-      <div class="uk-container"></div>
-        <div class="uk-navbar">
+      <div class="uk-container">
+        <nav class="uk-navbar" uk-navbar>
           <div class="uk-navbar-left">
             <a href="/" class="uk-navbar-item uk-logo"><span class="drupal">drupal</span><span>coder</span></a>
           </div>
@@ -16,7 +16,7 @@
             <ul class="uk-navbar-nav uk-visible@m">
                 <li class="">
                   <a href="/">Услуги <span class="caret"></span></a>
-                  <div class="uk-navbar-dropdown uk-navbar-dropdown-bottom-left">
+                  <div class="uk-navbar-dropdown uk-navbar-dropdown-bottom-left" uk-drop="delay-hide: 100">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
                       <li>
                         <a href="/support" data-drupal-link-system-path="node/1">Поддержка Drupal</a>
@@ -74,22 +74,20 @@
                 </li>
             </ul>
           </div>
-
-          <span class="uk-navbar-toggle-icon">Toggle navigation</span>
-
-        </div>
+          <span class="uk-navbar-toggle uk-hidden@m" uk-navbar-toggle-icon></span>
+        </nav>
       </div>
     </header>
 
     <div class="page-header-big">
       <div class="uk-container">
         <div class="region region-header">
-          <h1 class="page-header">Команда</h1>
+          <h1 class="page-header">Командa</h1>
         </div>
       </div>
     </div>
 
-    <div id="root" class="uk-container">
+    <div id="root" class="uk-container content">
     </div>
 
     <footer class="footer uk-container">

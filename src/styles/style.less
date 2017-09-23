@@ -10,6 +10,125 @@ body {
   line-height: 1.42857143;
   color: #333333;
 }
+.uk-container {
+  .box-sizing();
+}
+
+
+/* Header
+========================= */
+.header {
+  width: 100%;
+  max-width: none;
+  background: #000000;
+  min-height: 0;
+  border-radius: 0;
+  border-bottom: 1px solid #ffffff;
+  color: #ffffff;
+
+  a {
+    color: #ffffff;
+  }
+
+  .uk-navbar-right {
+    margin: 0 auto;
+  }
+
+  .uk-navbar-nav {
+    
+    & > li {
+     
+      & > a {
+        height: 35px;
+        color: #ffffff;
+        text-transform: none;
+        font-size: 16px;
+        padding: 7px 15px;
+        font-family: roboto;
+        font-weight: 300;
+
+        .caret {
+          display: inline-block;
+          width: 0;
+          height: 0;
+          margin-left: 2px;
+          vertical-align: middle;
+          border-top: 4px dashed;
+          border-top: 4px solid \9;
+          border-right: 4px solid transparent;
+          border-left: 4px solid transparent;
+        }
+
+        &:hover {
+          box-shadow: 0px 1px 0px #0392b8;
+          color: #0392b8;
+        }
+      }
+    }
+  }
+  
+  .uk-navbar-toggle:extend(.header .uk-navbar-nav > li > a) {}
+
+  .uk-navbar-item:extend(.header .uk-navbar-nav > li > a) {}
+
+  .uk-navbar-dropdown {
+    background: #0392b8;
+    width: 300px;
+    box-shadow: 0px 19px 40px -24px black;
+    padding: 0 20px;
+
+    ul.uk-nav {
+      padding: 8px 0px;
+
+      li {
+
+        &:hover {
+          background: #2F86DC;
+        }
+      }
+        
+      a {
+        color: #ffffff;
+        padding: 3px 10px;
+        font-size: 16px;
+      }
+    }
+    
+    &.uk-open {
+      margin-top: 0;
+      top: 36px !important;
+    }
+  }
+
+  .uk-logo {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 25px;
+    position: relative;
+    z-index: 1000;
+    padding-left: 0;
+
+    &:hover {
+      color: #ffffff
+    }
+
+    .drupal {
+      color: #0392b8;
+
+      &:hover {
+        color: #0392b8;
+      }
+    }
+  }
+}
+
+/* Content
+========================= */
+.content {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
 
 
 /* Title region
@@ -20,7 +139,7 @@ body {
   background: #296dad;
   position: relative;
   overflow: hidden;
-  color: #fff;
+  color: #ffffff;
 
   h1.page-header {
     border: 0;
