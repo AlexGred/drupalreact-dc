@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import Users from '../companents/users';
 import ErrorPage from '../companents/errorpage';
+import Throbber from '../companents/throbber';
 
 
 class App extends Component {
@@ -26,11 +27,13 @@ class App extends Component {
  
   componentDidMount() {
     this.serverRequest = axios.get(this.props.source).then(user => {     
-      this.setState({
-        throbber: true,
-        users: user.data,
-        response: true
-      });
+      setTimeout(() => {
+        this.setState({
+          throbber: true,
+          users: user.data,
+          response: true
+        });
+      }, 600);
     }).catch(() => {
       this.setState({
         throbber: true,
@@ -38,25 +41,32 @@ class App extends Component {
       });
     });
   }
-
-  // componentWillUnmount() {
-  //   this.serverRequest.abort();
-  // }
  
   render() {
     let userData = this.state.users;
 
-    if (this.state.response) {
-      return (
-        <div className='users'>
-          <Users users={userData} />
-        </div>
-      );
+    if (this.state.throbber) {
+
+      if (this.state.response) {
+        return (
+          <div className='users'>
+            <Users users={userData} />
+          </div>
+        );
+      }
+      else {
+        return (
+          <div className='error'>
+            <ErrorPage />
+          </div>
+        );
+      }
     }
     else {
+      
       return (
-        <div className='error'>
-          <ErrorPage />
+        <div className='throbber'>
+          <Throbber />
         </div>
       );
     }

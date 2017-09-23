@@ -26,11 +26,13 @@ export default class User extends Component {
     let params = this.props.match.params;
 
     this.serverRequest = axios.get('http://dev.drupal-coder.ru/api/user/' + params.uid).then(user => {  
-      this.setState({
-        throbber: true,
-        user: user.data[0],
-        response: true
-      });
+      setTimeout(() => {
+        this.setState({
+          throbber: true,
+          user: user.data[0],
+          response: true
+        });
+      }, 600);
     }).catch(() => {
       this.setState({
         throbber: true,
