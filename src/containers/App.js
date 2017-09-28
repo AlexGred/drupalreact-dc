@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import Users from '../companents/users';
-import ErrorPage from '../companents/errorpage';
-import Throbber from '../companents/throbber';
+import Users from '../companents/Users';
+import ErrorPage from '../companents/ErrorPage';
+import Throbber from '../companents/Throbber';
 
 
 class App extends Component {

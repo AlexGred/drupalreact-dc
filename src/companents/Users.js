@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
-import User from '../companents/user';
+import User from '../companents/User';
 
 export default class Users extends Component {
 
@@ -12,12 +12,12 @@ export default class Users extends Component {
 
       return (
         <div className='item-user uk-width-1-2 uk-width-1-3@s uk-width-1-4@m' key={index}>
-          <Link to={`/user/${item.uid}`}>
+          <div uid={item.uid} className='user-link'>
             <img className='img' src={img} />
-          </Link>
-          <Link to={`/user/${item.uid}`}>
+          </div>
+          <div uid={item.uid} className='user-link'>
             <div className='name'>{item.field_surname}</div>
-          </Link>
+          </div>
           <div className='post'>{item.field_post}</div>
           <div className='hired'>{item.field_hired}</div>
 

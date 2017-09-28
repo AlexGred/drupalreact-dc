@@ -5,8 +5,8 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 
 // Companents
-import App from './containers/app';
-import User from './companents/user';
+import App from './containers/App';
+import User from './companents/User';
 
 // Route
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';

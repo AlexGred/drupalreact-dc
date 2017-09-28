@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import ErrorPage from './errorpage';
-import Throbber from './throbber';
+import ErrorPage from './ErrorPage';
+import Throbber from './Throbber';
 
 export default class User extends Component {
 
