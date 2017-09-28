@@ -1,7 +1,8 @@
-const initialState = {
-  source: 'http://dev.drupal-coder.ru/api/user'
-};
+import { combineReducers } from 'redux';
+import users from './users';
+ import user from './user';
 
-export default function userstate(state = initialState) {
-  return state;
-}
+export default combineReducers({
+  users,
+  user
+});

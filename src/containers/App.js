@@ -75,7 +75,8 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    source: state.source
+    source: state.source,
+    uid : state.uid
   };
 }
 
