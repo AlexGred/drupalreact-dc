@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import axios from 'axios';
 import Users from '../companents/Users';
 import ErrorPage from '../companents/ErrorPage';
 import Throbber from '../companents/Throbber';
+import * as pageActions from '../actions/PageActions';
 
 
 class App extends Component {
@@ -43,14 +45,16 @@ class App extends Component {
   }
  
   render() {
+    const { getUser } = this.props.pageActions;
     let userData = this.state.users;
+    let uid = this.props.uid;
 
     if (this.state.throbber) {
 
       if (this.state.response) {
         return (
           <div className='users'>
-            <Users users={userData} />
+            <Users users={userData} uid={uid} getUser={getUser} />
           </div>
         );
       }
@@ -73,11 +77,17 @@ class App extends Component {
   }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
-    source: state.source,
-    uid : state.uid
+    source: state.users.source,
+    uid : state.user.uid
   };
-}
+};
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    pageActions: bindActionCreators(pageActions, dispatch)
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

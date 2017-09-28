@@ -4,6 +4,6 @@ const initialState = {
 
 const userstate = (state = initialState) => {
   return state;
-}
+};
 
 export default userstate;
