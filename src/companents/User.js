@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import ErrorPage from './ErrorPage'
-import Throbber from './Throbber'
+// import Throbber from './Throbber'
 
 export default class User extends Component {
 
@@ -9,58 +8,17 @@ export default class User extends Component {
     super(props)
 
     this.state = {
-      user: '',
       throbber: false,
-      response: true,
-      uid: this.props.uid
     }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (this.props.uid != nextProps.uid) {
-      this.setState({
-        uid: nextProps.uid
-      })
-    }
-  }
- 
-  componentDidMount() {
-    let params
-    
-    if (this.props.match) {
-      params = this.props.match.params.uid
-    }
-    else {
-      params = this.state.uid
-    }
-
-    this.serverRequest = axios.get('http://dev.drupal-coder.ru/api/user/' + params).then(user => {  
-      setTimeout(() => {
-        this.setState({
-          throbber: true,
-          user: user.data[0],
-          response: true
-        })
-      }, 600)
-    }).catch(() => {
-      this.setState({
-        throbber: true,
-        response: false
-      })
-    })
-  }
-
-  componentWillUnmount() {
-    console.log('!')
   }
 
   render() {
-    let user = this.state.user
+    let user = this.props.user
     let img = 'http://dev.drupal-coder.ru' + decodeURIComponent(user.user_picture)
 
-    if (this.state.throbber) {
+    // if (this.state.throbber) {
 
-      if (this.state.response) {
+      if (this.props.status) {
 
         return (
           <div>
@@ -116,7 +74,7 @@ export default class User extends Component {
         )
       }
     }
-    else {
+    /* else {
 
       return (
         <div className='throbber'>
@@ -124,5 +82,5 @@ export default class User extends Component {
         </div>
       )
     }
-  }
+  } */
 }

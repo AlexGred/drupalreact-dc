@@ -17,8 +17,9 @@ class App extends Component {
     this.state = {
       users: [],
       throbber: false,
-      response: true,
-      uid: 1
+      status: false,
+      statusApp: true,
+      user: []
     }
   }
  
@@ -28,13 +29,13 @@ class App extends Component {
         this.setState({
           throbber: true,
           users: user.data,
-          response: true
+          statusApp: true
         })
       }, 600)
     }).catch(() => {
       this.setState({
         throbber: true,
-        response: false
+        statusApp: false
       })
     })
   }
@@ -42,23 +43,23 @@ class App extends Component {
   render() {
     const { getUser } = this.props.pageActions
     let userData = this.state.users
-    let uid = this.props.uid
+    let user = this.props.user
+    let status = this.props.status
+
+    if (status == 'success') {
+      return (
+        <div className='users'>
+          <Modal user={user} status={status} />
+        </div>
+      )
+    }
 
     if (this.state.throbber) {
 
-      if (uid != 0) {
+      if (this.state.statusApp) {
         return (
           <div className='users'>
-            <Modal uid={uid} />
-            <Users users={userData} uid={uid} getUser={getUser} />
-          </div>
-        )
-      }
-
-      if (this.state.response) {
-        return (
-          <div className='users'>
-            <Users users={userData} uid={uid} getUser={getUser} />
+            <Users users={userData} getUser={getUser} />
           </div>
         )
       }
@@ -84,7 +85,8 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return {
     source: state.users.source,
-    uid : state.user.uid
+    user : state.user,
+    status: state.user.status
   }
 }
 

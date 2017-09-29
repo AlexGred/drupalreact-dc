@@ -4,12 +4,12 @@ import User from './User'
 export default class Modal extends Component {
 
   render() {
-    let uid = this.props.uid
+    let user = this.props.user
+    let status = this.props.status
 
     return (
       <div className='modal'>
-        <User uid={uid} />
-        {uid}
+        <User user={user} status={status} />
       </div>
     )
   }
