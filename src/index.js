@@ -1,28 +1,28 @@
 // Libraries
-import 'babel-polyfill';
-import React from 'react';
-import { render } from 'react-dom';
-import { Provider } from 'react-redux';
+import 'babel-polyfill'
+import React from 'react'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
 
 // Companents
-import App from './containers/App';
-import User from './companents/User';
+import App from './containers/App'
+import User from './companents/User'
 
 // Route
-import { HashRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 
 // Store
-import configureStore from './store/configureStore';
+import configureStore from './store/configureStore'
 
 // UI
-import 'jquery';
-import 'uikit';
+import 'jquery'
+import 'uikit'
 
 // Styles
-import 'uikit/dist/css/uikit.min.css';
-import './styles/style.less';
+import 'uikit/dist/css/uikit.min.css'
+import './styles/style.less'
 
-const store = configureStore();
+const store = configureStore()
 
 render(
   <Provider store={store}>
@@ -35,4 +35,4 @@ render(
   </Provider>,
 
   document.getElementById('root')
-);
+)

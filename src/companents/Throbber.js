@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 
 export default class Throbber extends Component {
 
@@ -12,6 +12,6 @@ export default class Throbber extends Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }

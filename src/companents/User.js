@@ -1,49 +1,62 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import ErrorPage from './ErrorPage';
-import Throbber from './Throbber';
+import React, { Component } from 'react'
+import axios from 'axios'
+import ErrorPage from './ErrorPage'
+import Throbber from './Throbber'
 
 export default class User extends Component {
 
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       user: '',
       throbber: false,
-      response: true
-    };
+      response: true,
+      uid: this.props.uid
+    }
   }
 
-  componentWillMount() {
-    this.setState({
-      throbber: false,
-      response: true
-    });
+  componentWillReceiveProps(nextProps) {
+    if (this.props.uid != nextProps.uid) {
+      this.setState({
+        uid: nextProps.uid
+      })
+    }
   }
  
   componentDidMount() {
-    let params = this.props.match.params;
+    let params
+    
+    if (this.props.match) {
+      params = this.props.match.params.uid
+    }
+    else {
+      params = this.state.uid
+    }
 
-    this.serverRequest = axios.get('http://dev.drupal-coder.ru/api/user/' + params.uid).then(user => {  
+    this.serverRequest = axios.get('http://dev.drupal-coder.ru/api/user/' + params).then(user => {  
       setTimeout(() => {
         this.setState({
           throbber: true,
           user: user.data[0],
           response: true
-        });
-      }, 600);
+        })
+      }, 600)
     }).catch(() => {
       this.setState({
         throbber: true,
         response: false
-      });
-    });
+      })
+    })
+  }
+
+  componentWillUnmount() {
+    console.log('!')
   }
 
   render() {
-    let user = this.state.user;
-    let img = 'http://dev.drupal-coder.ru' + decodeURIComponent(user.user_picture);
+    let user = this.state.user
+    let img = 'http://dev.drupal-coder.ru' + decodeURIComponent(user.user_picture)
 
     if (this.state.throbber) {
 
@@ -92,7 +105,7 @@ export default class User extends Component {
               </div>
             </div>
           </div>
-        );
+        )
       }
       else {
 
@@ -100,7 +113,7 @@ export default class User extends Component {
           <div className='error'>
             <ErrorPage />
           </div>
-        );
+        )
       }
     }
     else {
@@ -109,7 +122,7 @@ export default class User extends Component {
         <div className='throbber'>
           <Throbber />
         </div>
-      );
+      )
     }
   }
 }

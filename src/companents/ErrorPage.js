@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 
 export default class ErrorPage extends Component {
 
@@ -10,6 +10,6 @@ export default class ErrorPage extends Component {
           Произошла ошибка. Обновите страницу.
         </div>
       </div>
-    );
+    )
   }
 }
