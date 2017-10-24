@@ -6,10 +6,11 @@ export default class Modal extends Component {
   render() {
     let user = this.props.user;
     let status = this.props.status;
+    let isFetching = this.props.isFetching;
 
     return (
       <div className='modal'>
-        <User user={user} status={status} />
+        <User user={user} status={status} isFetching={isFetching} />
       </div>
     );
   }

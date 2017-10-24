@@ -16,9 +16,9 @@ class App extends Component {
 
     this.state = {
       users: [],
-      throbber: false,
-      status: false,
+      isFetching: true,
       statusApp: true,
+      status: false,
       user: []
     };
   }
@@ -27,14 +27,14 @@ class App extends Component {
     this.serverRequest = axios.get(this.props.source).then(user => {     
       setTimeout(() => {
         this.setState({
-          throbber: true,
+          isFetching: false,
           users: user.data,
           statusApp: true
         });
       }, 600);
     }).catch(() => {
       this.setState({
-        throbber: true,
+        isFetching: false,
         statusApp: false
       });
     });
@@ -45,16 +45,26 @@ class App extends Component {
     let userData = this.state.users;
     let user = this.props.user;
     let status = this.props.status;
+    let isFetching = this.props.isFetching;
 
-    if (status == 'success') {
+    if (status) {
       return (
         <div className='users'>
-          <Modal user={user} status={status} />
+          <Modal user={user} status={status} isFetching={isFetching} />
+          <Users users={userData} getUser={getUser} />
         </div>
       );
     }
 
-    if (this.state.throbber) {
+    if (this.state.isFetching) {
+
+      return (
+        <div className='throbber'>
+          <Throbber />
+        </div>
+      );
+    }
+    else {
 
       if (this.state.statusApp) {
         return (
@@ -71,22 +81,15 @@ class App extends Component {
         );
       }
     }
-    else {
-      
-      return (
-        <div className='throbber'>
-          <Throbber />
-        </div>
-      );
-    }
   }
 }
 
 const mapStateToProps = (state) => {
   return {
     source: state.users.source,
-    user : state.user,
-    status: state.user.status
+    user : state.user.user,
+    status: state.user.status,
+    isFetching: state.user.isFetching
   };
 };
 

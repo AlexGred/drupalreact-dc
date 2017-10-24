@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
 import ErrorPage from './ErrorPage';
-// import Throbber from './Throbber'
+import Throbber from './Throbber';
 
 export default class User extends Component {
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      throbber: false,
-    };
-  }
 
   render() {
     let user = this.props.user;
     let img = 'http://dev.drupal-coder.ru' + decodeURIComponent(user.user_picture);
 
-    // if (this.state.throbber) {
+    if (this.props.isFetching) {
+
+      return (
+        <div className='throbber'>
+          <Throbber />
+        </div>
+      );
+    }
+    else {
 
       if (this.props.status) {
-
+        
         return (
           <div>
             <div className='uk-grid'>
@@ -74,13 +74,5 @@ export default class User extends Component {
         );
       }
     }
-    /* else {
-
-      return (
-        <div className='throbber'>
-          <Throbber />
-        </div>
-      )
-    }
-  } */
+  }
 }
