@@ -1,20 +1,20 @@
-import React, { Component } from 'react'
-import ErrorPage from './ErrorPage'
+import React, { Component } from 'react';
+import ErrorPage from './ErrorPage';
 // import Throbber from './Throbber'
 
 export default class User extends Component {
 
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       throbber: false,
-    }
+    };
   }
 
   render() {
-    let user = this.props.user
-    let img = 'http://dev.drupal-coder.ru' + decodeURIComponent(user.user_picture)
+    let user = this.props.user;
+    let img = 'http://dev.drupal-coder.ru' + decodeURIComponent(user.user_picture);
 
     // if (this.state.throbber) {
 
@@ -63,7 +63,7 @@ export default class User extends Component {
               </div>
             </div>
           </div>
-        )
+        );
       }
       else {
 
@@ -71,7 +71,7 @@ export default class User extends Component {
           <div className='error'>
             <ErrorPage />
           </div>
-        )
+        );
       }
     }
     /* else {

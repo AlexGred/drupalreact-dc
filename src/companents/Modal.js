@@ -1,16 +1,16 @@
-import React, {Component} from 'react'
-import User from './User'
+import React, {Component} from 'react';
+import User from './User';
 
 export default class Modal extends Component {
 
   render() {
-    let user = this.props.user
-    let status = this.props.status
+    let user = this.props.user;
+    let status = this.props.status;
 
     return (
       <div className='modal'>
         <User user={user} status={status} />
       </div>
-    )
+    );
   }
 }

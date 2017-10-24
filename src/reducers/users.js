@@ -1,9 +1,9 @@
 const initialState = {
   source: 'http://dev.drupal-coder.ru/api/user'
-}
+};
 
 const users = (state = initialState) => {
-  return state
-}
+  return state;
+};
 
-export default users
+export default users;

@@ -1,17 +1,17 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 // import User from '../companents/User'
 
 export default class Users extends Component {
 
   getUser = (uid) => {
-    this.props.getUser(uid)
+    this.props.getUser(uid);
   } 
 
   render() {
-    let data = this.props.users
+    let data = this.props.users;
 
     var userData = data.map((item, index) => {
-      let img = 'http://dev.drupal-coder.ru' + decodeURIComponent(item.user_picture)
+      let img = 'http://dev.drupal-coder.ru' + decodeURIComponent(item.user_picture);
 
       return (
 
@@ -25,13 +25,13 @@ export default class Users extends Component {
           <div className='post'>{item.field_post}</div>
           <div className='hired'>{item.field_hired}</div>
         </div> 
-      )
-    })
+      );
+    });
 
     return (
       <div className='uk-grid'>
         {userData}
       </div>
-    )
+    );
   }
 }

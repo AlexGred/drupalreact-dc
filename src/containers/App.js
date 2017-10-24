@@ -1,18 +1,18 @@
-import React, {Component} from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import axios from 'axios'
-import Users from '../companents/Users'
-import ErrorPage from '../companents/ErrorPage'
-import Throbber from '../companents/Throbber'
-import Modal from '../companents/Modal'
-import * as pageActions from '../actions/PageActions'
+import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import axios from 'axios';
+import Users from '../companents/Users';
+import ErrorPage from '../companents/ErrorPage';
+import Throbber from '../companents/Throbber';
+import Modal from '../companents/Modal';
+import * as pageActions from '../actions/PageActions';
 
 
 class App extends Component {
 
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       users: [],
@@ -20,7 +20,7 @@ class App extends Component {
       status: false,
       statusApp: true,
       user: []
-    }
+    };
   }
  
   componentDidMount() {
@@ -30,28 +30,28 @@ class App extends Component {
           throbber: true,
           users: user.data,
           statusApp: true
-        })
-      }, 600)
+        });
+      }, 600);
     }).catch(() => {
       this.setState({
         throbber: true,
         statusApp: false
-      })
-    })
+      });
+    });
   }
  
   render() {
-    const { getUser } = this.props.pageActions
-    let userData = this.state.users
-    let user = this.props.user
-    let status = this.props.status
+    const { getUser } = this.props.pageActions;
+    let userData = this.state.users;
+    let user = this.props.user;
+    let status = this.props.status;
 
     if (status == 'success') {
       return (
         <div className='users'>
           <Modal user={user} status={status} />
         </div>
-      )
+      );
     }
 
     if (this.state.throbber) {
@@ -61,14 +61,14 @@ class App extends Component {
           <div className='users'>
             <Users users={userData} getUser={getUser} />
           </div>
-        )
+        );
       }
       else {
         return (
           <div className='error'>
             <ErrorPage />
           </div>
-        )
+        );
       }
     }
     else {
@@ -77,7 +77,7 @@ class App extends Component {
         <div className='throbber'>
           <Throbber />
         </div>
-      )
+      );
     }
   }
 }
@@ -87,13 +87,13 @@ const mapStateToProps = (state) => {
     source: state.users.source,
     user : state.user,
     status: state.user.status
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     pageActions: bindActionCreators(pageActions, dispatch)
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App);
