@@ -1,8 +1,6 @@
 import axios from 'axios';
 
 const getUserAsync = (user, status) => { 
-  
-  console.log(user, status);
 
   return (dispatch) => {
     dispatch({
