@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 
 // Companents
 import App from './containers/App';
-import User from './companents/User';
+import AppUser from './containers/AppUser';
 
 // Route
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
@@ -29,7 +29,7 @@ render(
     <Router>
       <Switch>
         <Route exact path='/' component={App}/>
-        <Route exact path='/user/:uid' component={User}/>
+        <Route exact path='/user/:uid' component={AppUser}/>
       </Switch>
     </Router>
   </Provider>,

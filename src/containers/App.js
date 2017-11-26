@@ -48,8 +48,6 @@ class App extends Component {
     let status = this.props.status;
     let isFetching = this.props.isFetching;
 
-    console.log(status);
-
     if (status) {
 
       return (

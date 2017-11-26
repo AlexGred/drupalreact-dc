@@ -27,6 +27,8 @@ const getUserAsync = (user, status) => {
 
 export const getUser = (uid) => {  
 
+  console.log('!');
+
   return (dispatch) => {
     axios.get('http://dev.drupal-coder.ru/api/user/' + uid).then(user => {
       dispatch(getUserAsync(user.data[0], user.status));
