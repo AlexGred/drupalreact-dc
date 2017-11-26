@@ -35,3 +35,11 @@ export const getUser = (uid) => {
     });
   };
 };
+
+export const closeModal = (modal) => {
+  
+  return {
+    type: 'CLOSE_MODAL',
+    payload: modal
+  };
+};

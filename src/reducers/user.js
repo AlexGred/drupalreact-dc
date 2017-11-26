@@ -16,6 +16,9 @@ const user = (state = initialState, action) => {
     case 'GET_USER_ERROR':
       return {...state, user: action.payload, status: false, isFetching: false};
 
+    case 'CLOSE_MODAL':
+      return { ...state, status: action.payload };
+
     default:
       return state;
   }

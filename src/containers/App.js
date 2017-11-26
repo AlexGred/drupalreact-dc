@@ -19,7 +19,7 @@ class App extends Component {
       isFetching: true,
       statusApp: true,
       status: false,
-      user: []
+      user: [],
     };
   }
  
@@ -42,22 +42,26 @@ class App extends Component {
  
   render() {
     const { getUser } = this.props.pageActions;
+    const { closeModal } = this.props.pageActions;
     let userData = this.state.users;
     let user = this.props.user;
     let status = this.props.status;
     let isFetching = this.props.isFetching;
 
+    console.log(status);
+
     if (status) {
+
       return (
         <div className='users'>
-          <Modal user={user} status={status} isFetching={isFetching} />
+          <Modal closeModal={closeModal} user={user} status={status} isFetching={isFetching} />
           <Users users={userData} getUser={getUser} />
         </div>
       );
     }
 
     if (this.state.isFetching) {
-
+      
       return (
         <div className='throbber'>
           <Throbber />
@@ -85,6 +89,7 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
+
   return {
     source: state.users.source,
     user : state.user.user,
@@ -94,6 +99,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
+
   return {
     pageActions: bindActionCreators(pageActions, dispatch)
   };
