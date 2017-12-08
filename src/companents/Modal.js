@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import User from './User';
 
 export default class Modal extends Component {
 
@@ -8,15 +7,13 @@ export default class Modal extends Component {
   } 
 
   render() {
-    let user = this.props.user;
-    let status = this.props.status;
-    let isFetching = this.props.isFetching;
+    let children = this.props.children;
 
     return (
       <div className='modal'>
         <div onClick={() => this.closeModal(false)} className='modal-close'>
         </div>
-        <User user={user} status={status} isFetching={isFetching} />
+        { children }
       </div>
     );
   }

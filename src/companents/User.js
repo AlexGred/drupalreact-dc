@@ -5,7 +5,7 @@ import Throbber from './Throbber';
 export default class User extends Component {
 
   render() {
-    let user = this.props.user;
+    let { user } = this.props;
     let img = 'http://dev.drupal-coder.ru' + decodeURIComponent(user.user_picture);
 
     if (this.props.isFetching) {

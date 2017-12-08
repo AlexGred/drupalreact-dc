@@ -28,9 +28,7 @@ class AppUser extends Component {
   }
  
   render() {
-    let user = this.props.user;
-    let status = this.props.status;
-    let isFetching = this.props.isFetching;
+    let { user, status, isFetching } = this.props;
 
       return (
         <div className='user'>
