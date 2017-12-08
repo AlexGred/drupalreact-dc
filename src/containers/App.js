@@ -6,6 +6,7 @@ import Users from '../companents/Users';
 import ErrorPage from '../companents/ErrorPage';
 import Throbber from '../companents/Throbber';
 import Modal from '../companents/Modal';
+import User from '../companents/User';
 import * as pageActions from '../actions/PageActions';
 
 
@@ -41,18 +42,17 @@ class App extends Component {
   }
  
   render() {
-    const { getUser } = this.props.pageActions;
-    const { closeModal } = this.props.pageActions;
+    const { getUser, closeModal } = this.props.pageActions;
     let userData = this.state.users;
-    let user = this.props.user;
-    let status = this.props.status;
-    let isFetching = this.props.isFetching;
+    let { user, status, isFetching } = this.props;
 
     if (status) {
 
       return (
         <div className='users'>
-          <Modal closeModal={closeModal} user={user} status={status} isFetching={isFetching} />
+          <Modal closeModal={closeModal}>
+            <User user={user} status={status} isFetching={isFetching} />
+          </Modal>
           <Users users={userData} getUser={getUser} />
         </div>
       );
