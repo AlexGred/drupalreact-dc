@@ -45,8 +45,11 @@ module.exports = {
       { 
         test: /\.less$/, 
         loader: 'style-loader!css-loader!autoprefixer-loader!less-loader' 
+      },
+      {
+        test: /\.(jpg|png|svg)$/,
+        loader: 'file-loader'
       }
-
     ]
   }
 };
