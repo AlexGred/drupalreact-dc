@@ -50,7 +50,7 @@ class App extends Component {
 
       return (
         <div className='users'>
-          <Modal closeModal={closeModal}>
+          <Modal closeModal={closeModal} isFetching={isFetching}>
             <User user={user} status={status} isFetching={isFetching} />
           </Modal>
           <Users users={userData} getUser={getUser} />

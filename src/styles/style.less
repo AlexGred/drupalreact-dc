@@ -134,15 +134,23 @@ body {
   .user-link {
     cursor: pointer;
   }
+
+  .users {
+    position: relative;
+  }
 }
 
 
 /* Throbber
 ========================== */
 .throbber {
-  position: absolute;
-  width: 100%;
-  top: 50%;
+  position: fixed;
+  left: 50vw;
+  top: 50vh;
+
+  .uk-spinner {
+    color: #ffffff;
+  }
 }
 
 
@@ -193,9 +201,64 @@ footer {
 ======================== */
 .modal {
 
-  .modal-close {
-    width: 20px;
-    height: 20px;
-    background-color: #cccccc;
+  &__layer {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    animation: fadeIn 0.5s;
+  }
+
+  &__wrapper {
+    width: 100%;
+    padding: 20px;
+    background-color: #ffffff;
+  }
+
+  &__throbber {
+    animation: fadeIn 0.2s;
+  }
+
+  &__close {
+    width: 30px;
+    height: 30px;
+    padding: 6px;
+    transition: background 0.5s;
+    cursor: pointer;
+
+    &-btn {
+      background: url('../assets/images/modal_close.svg') no-repeat center center;
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+      display: inline-block;
+    }
+
+    &_position {
+      position: absolute;
+      top: -42px;
+      right: 0;
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  &_fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1999;
+  }
+
+  &_absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+  }
+
+  &_no-background {
+    background: none;
   }
 }

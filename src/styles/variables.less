@@ -18,3 +18,20 @@
   -moz-box-sizing:    @type;
   box-sizing:         @type;
 }
+
+.keyframes(@name; @arguments) {
+	@-moz-keyframes @name { @arguments(); }
+	@-webkit-keyframes @name { @arguments(); }
+	@keyframes @name { @arguments(); }
+}
+
+/* Animations
+========================= */
+.keyframes(fadeIn; {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+});
