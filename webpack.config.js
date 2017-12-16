@@ -1,5 +1,5 @@
-var path = require('path')
-var webpack = require('webpack')
+var path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
@@ -13,6 +13,9 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/static/'
   },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
@@ -25,7 +28,7 @@ module.exports = {
         include: [
           path.resolve(__dirname, 'src')
         ],
-        test: /\.js$/,
+        test: /\.jsx?$/,
         enforce: 'pre'
       },
       {
@@ -33,7 +36,7 @@ module.exports = {
         include: [
           path.resolve(__dirname, 'src')
         ],
-        test: /\.js$/
+        test: /\.jsx?$/
       },
       { 
         test: /\.css$/, 
@@ -46,4 +49,4 @@ module.exports = {
 
     ]
   }
-}
+};
