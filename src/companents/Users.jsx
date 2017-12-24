@@ -14,15 +14,16 @@ export default class Users extends Component {
 
       return (
 
-        <div className='item-user uk-width-1-2 uk-width-1-3@s uk-width-1-4@m' key={index}>
-          <div onClick={() => this.getUser(item.uid)} className='user-link'>
-            <img className='img' src={img} />
+        <div className='item-user uk-width-1-2 uk-width-1-3@s uk-text-center' key={index}>
+          <div className='item-user-wrapper'>
+            <div onClick={() => this.getUser(item.uid)} className='user-img'>
+              <img className='img' src={img} />
+            </div>
+            <div onClick={() => this.getUser(item.uid)} className='user-link'>
+              <div className='name'>{item.field_surname}</div>
+            </div>
+            <div className='post'>{item.field_post}</div>
           </div>
-          <div onClick={() => this.getUser(item.uid)} className='user-link'>
-            <div className='name'>{item.field_surname}</div>
-          </div>
-          <div className='post'>{item.field_post}</div>
-          <div className='hired'>{item.field_hired}</div>
         </div> 
       );
     });
