@@ -14,6 +14,7 @@ class AppUser extends Component {
       isFetching: true,
       status: false,
       user: [],
+      drupalgive: []
     };
   }
 
@@ -28,11 +29,11 @@ class AppUser extends Component {
   }
  
   render() {
-    let { user, status, isFetching } = this.props;
+    let { user, drupalgive, status, isFetching } = this.props;
 
       return (
         <div className='user'>
-          <User user={user} status={status} isFetching={isFetching} />
+          <User drupalgive={drupalgive} user={user} status={status} isFetching={isFetching} />
         </div>
       );
   }
@@ -41,7 +42,8 @@ class AppUser extends Component {
 const mapStateToProps = (state) => {
 
   return {
-    user : state.user.user,
+    user: state.user.user,
+    drupalgive: state.user.drupalgive,
     status: state.user.status,
     isFetching: state.user.isFetching
   };
