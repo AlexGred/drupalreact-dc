@@ -35,7 +35,7 @@ export const getUser = (uid) => {
       axios.get('http://dev.drupal-coder.ru/api/user/' + uid + '?_format=json'),
       axios.get('http://dev.drupal-coder.ru/api/drupalgive/' + uid + '?_format=json')
     ]).then(axios.spread((user, drupalgive) => {
-      dispatch(getUserAsync(user.data[0], user.status, drupalgive.data[0], drupalgive.status));
+      dispatch(getUserAsync(user.data[0], user.status, drupalgive.data, drupalgive.status));
     })).catch(axios.spread((user, drupalgive) => {
       dispatch(getUserAsync([], user.status, [], drupalgive.status));
     }));
