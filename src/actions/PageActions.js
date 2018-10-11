@@ -9,7 +9,7 @@ const getUserAsync = (user, status, drupalgive, drupalgiveStatus) => {
       drupalgiveGet: []
     });
 
-    if (status == 200 && drupalgiveStatus == 200) {
+    if (status === 200 && drupalgiveStatus === 200) {
       setTimeout(() => {
         dispatch({
           type: 'GET_USER_SUCCESS',

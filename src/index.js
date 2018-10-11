@@ -1,4 +1,5 @@
-// Libraries
+import * as serviceWorker from './serviceWorker';
+
 import 'babel-polyfill';
 import React from 'react';
 import { render } from 'react-dom';
@@ -20,7 +21,7 @@ import 'uikit';
 
 // Styles
 import 'uikit/dist/css/uikit.min.css';
-import './styles/style.less';
+import './styles/style.css';
 
 const store = configureStore();
 
@@ -36,3 +37,5 @@ render(
 
   document.getElementById('root')
 );
+
+serviceWorker.unregister();

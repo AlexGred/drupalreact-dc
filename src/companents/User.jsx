@@ -34,7 +34,7 @@ export default class User extends Component {
           <div className='user'>
             <div className='uk-grid'>
               <div className='uk-width-1-3 wrap-img'>
-                <img src={img} />
+                <img src={img} alt="" />
               </div>
               <div className='uk-width-2-3 wrap-text'>
                 <div className='field-name'>
