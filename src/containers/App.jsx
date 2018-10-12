@@ -21,6 +21,7 @@ class App extends Component {
       statusApp: true,
       status: false,
       user: [],
+      drupalgive: [],
     };
   }
  
@@ -44,14 +45,14 @@ class App extends Component {
   render() {
     const { getUser, closeModal } = this.props.pageActions;
     let userData = this.state.users;
-    let { user, status, isFetching } = this.props;
+    let { user, drupalgive, status, isFetching } = this.props;
 
     if (status) {
 
       return (
         <div className='users'>
-          <Modal closeModal={closeModal}>
-            <User user={user} status={status} isFetching={isFetching} />
+          <Modal closeModal={closeModal} isFetching={isFetching}>
+            <User user={user} drupalgive={drupalgive} status={status} isFetching={isFetching} />
           </Modal>
           <Users users={userData} getUser={getUser} />
         </div>
@@ -90,7 +91,8 @@ const mapStateToProps = (state) => {
 
   return {
     source: state.users.source,
-    user : state.user.user,
+    user: state.user.user,
+    drupalgive: state.user.drupalgive,
     status: state.user.status,
     isFetching: state.user.isFetching
   };

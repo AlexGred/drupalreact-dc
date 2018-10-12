@@ -4,14 +4,24 @@ import Throbber from './Throbber';
 
 export default class User extends Component {
 
+  drupalgiveRender(drupalgive) {
+    let html = [];
+
+    drupalgive.forEach(element => {
+    html.push(<li className='drupalgive-item'><a href={element.field_drupalgive_title_1}>{element.field_drupalgive_title}</a></li>);
+    });
+
+    return html;
+  }
+
   render() {
-    let { user } = this.props;
+    let { user, classModal, drupalgive } = this.props;
     let img = 'http://dev.drupal-coder.ru' + decodeURIComponent(user.user_picture);
 
     if (this.props.isFetching) {
 
       return (
-        <div className='throbber'>
+        <div className={'throbber' + classModal}>
           <Throbber />
         </div>
       );
@@ -21,10 +31,10 @@ export default class User extends Component {
       if (this.props.status) {
         
         return (
-          <div>
+          <div className='user'>
             <div className='uk-grid'>
               <div className='uk-width-1-3 wrap-img'>
-                <img src={img} />
+                <img src={img} alt="" />
               </div>
               <div className='uk-width-2-3 wrap-text'>
                 <div className='field-name'>
@@ -56,6 +66,11 @@ export default class User extends Component {
               </div>
             </div>
             <div className='uk-grid'>
+              <div className='uk-width-1-1 wrap-drupalgive'>
+                <ul className='drupalgive-container'>
+                  {this.drupalgiveRender(drupalgive)}
+                </ul>
+              </div>
               <div className='uk-width-1-1 wrap-description'>
                 <div className='field-about'>
                   {user.field_o_sebe}

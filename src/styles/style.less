@@ -1,5 +1,3 @@
-// out: false
-
 @import 'variables';
 
 /* Basic
@@ -131,8 +129,64 @@ body {
   min-height: ~'calc(100vh - 306px)';
   position: relative;
 
+  .item-user {
+    margin-bottom: 60px;
+
+    .item-user-wrapper {
+      max-width: 260px;
+
+      &:hover  .user-img img{
+        box-shadow: 0 4px 7px rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+
+  .user-img {
+    cursor: pointer;
+    margin-bottom: 10px;
+
+    img {
+      max-width: 75%;
+      transition: box-shadow 0.6s;
+    }
+  }
+
   .user-link {
     cursor: pointer;
+
+    .name {
+      font-size: 20px;
+      font-weight: 100;
+      margin-bottom: 5px;
+      
+      &:after {
+        width: 140px;
+        display: block;
+        content: '';
+        height: 1px;
+        margin: 5px auto 0;
+        background: linear-gradient(to left, transparent 0, transparent 20%, #d1d1d1 50%, transparent 80%, transparent 100%);
+      }
+    }
+  }
+
+  .drupalgive-container {
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+
+    .drupalgive-item {
+      float: left;
+      margin-right: 20px;
+    }
+  }
+
+  .post {
+    font-size: 14px;
+  }
+
+  .users {
+    position: relative;
   }
 }
 
@@ -140,9 +194,13 @@ body {
 /* Throbber
 ========================== */
 .throbber {
-  position: absolute;
-  width: 100%;
-  top: 50%;
+  position: fixed;
+  left: 50vw;
+  top: 50vh;
+
+  .uk-spinner {
+    color: #353535;
+  }
 }
 
 
@@ -193,9 +251,71 @@ footer {
 ======================== */
 .modal {
 
-  .modal-close {
-    width: 20px;
-    height: 20px;
-    background-color: #cccccc;
+  .throbber {
+
+    .uk-spinner {
+      color: #ffffff;
+    }
+  }
+
+  &__layer {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    animation: fadeIn 0.5s;
+  }
+
+  &__wrapper {
+    width: 100%;
+    padding: 20px;
+    background-color: #ffffff;
+  }
+
+  &__throbber {
+    animation: fadeIn 0.2s;
+  }
+
+  &__close {
+    width: 30px;
+    height: 30px;
+    padding: 6px;
+    transition: background 0.5s;
+    cursor: pointer;
+
+    &-btn {
+      background: url('../assets/images/modal_close.svg') no-repeat center center;
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+      display: inline-block;
+    }
+
+    &_position {
+      position: absolute;
+      top: -42px;
+      right: 0;
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  &_fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1999;
+  }
+
+  &_absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+  }
+
+  &_no-background {
+    background: none;
   }
 }
