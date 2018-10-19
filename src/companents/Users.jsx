@@ -17,7 +17,7 @@ export default class Users extends Component {
         <div className='item-user uk-width-1-2 uk-width-1-3@s uk-text-center' key={index}>
           <div className='item-user-wrapper'>
             <div onClick={() => this.getUser(item.uid)} className='user-img'>
-              <img className='img' src={img} alt="" />
+              <img className='img' src={img} alt='' />
             </div>
             <div onClick={() => this.getUser(item.uid)} className='user-link'>
               <div className='name'>{item.field_surname}</div>

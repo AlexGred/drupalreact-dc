@@ -7,8 +7,8 @@ export default class User extends Component {
   drupalgiveRender(drupalgive) {
     let html = [];
 
-    drupalgive.forEach(element => {
-    html.push(<li className='drupalgive-item'><a href={element.field_drupalgive_title_1}>{element.field_drupalgive_title}</a></li>);
+    drupalgive.forEach((element, index) => {
+    html.push(<li key={index} className='drupalgive-item'><a href={element.field_drupalgive_title_1}>{element.field_drupalgive_title}</a></li>);
     });
 
     return html;
@@ -34,7 +34,7 @@ export default class User extends Component {
           <div className='user'>
             <div className='uk-grid'>
               <div className='uk-width-1-3 wrap-img'>
-                <img src={img} alt="" />
+                <img src={img} alt='' />
               </div>
               <div className='uk-width-2-3 wrap-text'>
                 <div className='field-name'>

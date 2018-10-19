@@ -8,7 +8,7 @@ export default class Modal extends Component {
 
   render() {
     let { children, isFetching } = this.props;
-    let newChildren = React.cloneElement(children, { classModal: 'modal__throbber' });
+    let newChildren = React.cloneElement(children, { classModal: ' modal__throbber' });
     let noBackground = ''; 
 
     if (isFetching) {

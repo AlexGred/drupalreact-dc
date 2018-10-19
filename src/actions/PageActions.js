@@ -16,7 +16,7 @@ const getUserAsync = (user, status, drupalgive, drupalgiveStatus) => {
           payload: user,
           drupalgiveGet: drupalgive
         });
-      }, 600);
+      }, 400);
     }
     else {
       dispatch({
@@ -39,13 +39,6 @@ export const getUser = (uid) => {
     })).catch(axios.spread((user, drupalgive) => {
       dispatch(getUserAsync([], user.status, [], drupalgive.status));
     }));
-    /* axios.get('http://dev.drupal-coder.ru/api/user/' + uid + '?_format=json').then(user => {
-      dispatch(getUserAsync(user.data[0], user.status));
-    }).get('http://dev.drupal-coder.ru/api/drupalgive/' + uid + '?_format=json').then(user => {
-      dispatch(getUserAsync(user.data[0], user.status));
-    }).catch((user) => {
-      dispatch(getUserAsync([], user.status));
-    }); */
   };
 };
 
