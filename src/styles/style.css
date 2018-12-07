@@ -239,63 +239,68 @@ footer {
 }
 /* Modal
 ======================== */
-.modal .throbber .uk-spinner {
+.modal-window .throbber .uk-spinner {
   color: #ffffff;
 }
-.modal__layer {
+.modal-window__layer {
   background-color: rgba(0, 0, 0, 0.5);
   width: 100%;
   height: 100%;
   animation: fadeIn 0.4s;
 }
-.modal__wrapper {
+.modal-window__wrapper {
   width: 80%;
   padding: 20px;
   background-color: #ffffff;
 }
-.modal__throbber {
+.modal-window__throbber {
   animation: fadeIn 0.2s;
 }
-.modal__throbber .throbber {
+.modal-window__throbber .throbber {
   top: 0;
   left: 40vw;
 }
-.modal__close {
+.modal-window__close {
   width: 30px;
   height: 30px;
   padding: 6px;
   transition: background 0.5s;
   cursor: pointer;
+  box-sizing: content-box;
 }
-.modal__close-btn {
-  background: url('../assets/images/modal_close.svg') no-repeat center center;
+.modal-window__close-btn {
+  background: url('../assets/images/modal-window_close.svg') no-repeat center center;
   background-size: cover;
   width: 100%;
   height: 100%;
   display: inline-block;
+  opacity: 1;
 }
-.modal__close_position {
+.modal-window__close-btn:hover {
+  opacity: 1;
+}
+.modal-window__close_position {
   position: absolute;
   top: -42px;
   right: 0;
 }
-.modal__close:hover {
+.modal-window__close:hover {
   background-color: rgba(0, 0, 0, 0.2);
 }
-.modal_fixed {
+.modal-window_fixed {
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1999;
 }
-.modal_absolute {
+.modal-window_absolute {
   position: fixed;
   top: 50vh;
   left: 50%;
   z-index: 2000;
   transform: translate(-50%, -50%);
 }
-.modal_no-background {
+.modal-window_no-background {
   background: none;
 }
 /*# sourceMappingURL=style.css.map */
